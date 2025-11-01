@@ -2,9 +2,10 @@
 
 import { createServerClient, type CookieOptions } from "@supabase/ssr";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 export async function login(formData: FormData) {
-  const cookieStore = await cookies(); // no await
+  const cookieStore = await cookies();
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -18,7 +19,7 @@ export async function login(formData: FormData) {
           cookieStore.set(name, value, options);
         },
         remove(name: string, options: CookieOptions) {
-          cookieStore.set(name, "", { ...options, maxAge: 0 });
+          cookieStore.delete(name);
         },
       },
     }
@@ -27,11 +28,14 @@ export async function login(formData: FormData) {
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
 
-  const { error } = await supabase.auth.signInWithPassword({ email, password });
+  const { error } = await supabase.auth.signInWithPassword({ 
+    email, 
+    password 
+  });
 
   if (error) {
-    return { error: error.message, redirect: "/login" };
+    redirect("/login?error=" + encodeURIComponent(error.message));
   }
 
-  return { redirect: "/" };
+  redirect("/");
 }

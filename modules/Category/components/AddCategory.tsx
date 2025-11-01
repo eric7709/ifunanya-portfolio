@@ -11,6 +11,7 @@ export default function AddCategory() {
   const [value, setValue] = useState("");
   const { addCategory, categories, deleteCategory, replaceCategory } =
     useCategoryDataStore();
+
   const { mutate, isPending } = useCreateCategory();
   const [error, setError] = useState("");
 

@@ -1,87 +1,45 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import Image from "next/image";
-import { login } from "./login";
+import { useActionState } from "react";
+import { login } from "@/app/actions/auth";
 
 export default function LoginPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const router = useRouter();
-  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setLoading(true);
-    setError(null);
-    const formData = new FormData();
-    formData.append("email", email);
-    formData.append("password", password);
-    try {
-      const response = await login(formData);
-      if (response.error) {
-        setError(response.error);
-        setLoading(false);
-      } else {
-        router.push(response.redirect);
-      }
-    } catch (error) {
-      setError("An unexpected error occurred");
-      setLoading(false);
-    }
-  };
+  const [state, formAction] = useActionState(login, null);
+
   return (
-    <div className="fixed inset-0 bg-gray-50 flex items-center justify-center p-2">
-      {loading && (
-        <div className="absolute inset-0 bg-black/50 flex items-center justify-center z-50">
-          <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-        </div>
-      )}
-      <div className="w-[280px] bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
-        <div className="flex justify-center mb-3">
-          <Image
-            src="/favicon.svg"
-            alt="Cravings Logo"
-            width={28}
-            height={28}
-            priority
-          />
-        </div>
-        <h1 className="text-[13px] mb-4 font-bold text-gray-800 text-center">
-          Cravings
-        </h1>
-        {error && (
-          <p className="mb-2 text-[9px] text-red-600 text-center">{error}</p>
+    <div className="min-h-screen flex items-center justify-center">
+      <form action={formAction} className="space-y-4 w-full max-w-md">
+        {state?.error && (
+          <div className="bg-red-50 border border-red-400 text-red-700 px-4 py-3 rounded">
+            {state.error}
+          </div>
         )}
-        <form onSubmit={handleLogin} className="flex flex-col gap-2">
+
+        <div>
           <input
+            name="email"
             type="email"
             placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
             required
-            disabled={loading}
-            className="w-full rounded-md border border-gray-300 bg-gray-50 px-2 py-1 text-[10px] placeholder-gray-400 focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400 focus:outline-none transition-colors disabled:opacity-50"
+            className="w-full px-4 py-2 border rounded"
           />
+        </div>
+        <div>
           <input
+            name="password"
             type="password"
             placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
             required
-            disabled={loading}
-            className="w-full rounded-md border border-gray-300 bg-gray-50 px-2 py-1 text-[10px] placeholder-gray-400 focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400 focus:outline-none transition-colors disabled:opacity-50"
+            className="w-full px-4 py-2 border rounded"
           />
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full bg-indigo-600 text-white py-1 rounded-md text-[10px] font-medium hover:bg-indigo-700 disabled:opacity-50 transition-colors"
-          >
-            {loading ? "Logging in..." : "Login"}
-          </button>
-        </form>
-      </div>
+        </div>
+        <button
+          type="submit"
+          className="w-full bg-blue-600 text-white py-2 rounded"
+        >
+          Sign In
+        </button>
+      </form>
     </div>
   );
 }

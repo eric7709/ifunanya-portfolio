@@ -8,7 +8,7 @@ import { Printer } from "lucide-react";
 export default function TableQRCodeModal() {
   const { activeModal, closeModal, selectedTable } = useTableUtilStore();
   const qrRef = useRef<HTMLDivElement>(null);
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL!;
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
   const qrValue = `${baseUrl}/menu/${selectedTable?.url}`;
 
   const handlePrint = () => {
@@ -76,7 +76,7 @@ export default function TableQRCodeModal() {
           {qrValue && (
             <a
               href={qrValue}
-            target="_blank"
+              target="_blank"
               rel="noopener noreferrer"
               className="mt-2 text-xs text-blue-600 hover:underline text-center"
             >
