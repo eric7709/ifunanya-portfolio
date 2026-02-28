@@ -1,20 +1,26 @@
 @import "tailwindcss";
 
+html{
+  scroll-behavior: smooth;
+}
+
+
 
 body{
-    color: #1F2937; /* dark gray, softer than black */
+    color: #080226; /* dark gray, softer than black */
 }
 
 
 /* Hide scrollbar for all elements with scrollbar-none */
-.scrollbar-none::-webkit-scrollbar {
+body::-webkit-scrollbar {
   display: none;
+}
+
+::-webkit-scrollbar{
+  display: none
 }
 .scrollbar-none {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
-}
-.orderHeaderInput{
-  @apply h-11 border-2 w-48 rounded-md
 }
  

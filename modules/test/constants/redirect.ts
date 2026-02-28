@@ -1,5 +1,0 @@
-export const ADMIN_REDIRECT_LINK = "/admin/dashboard"
-export const KITCHEN_REDIRECT_LINK = "/kitchen/orders"
-export const WAITER_REDIRECT_LINK = "/waiter"
-export const CASHIER_REDIRECT_LINK = "/cashier/orders"
-export const LOGIN_LINK = "/auth/login"

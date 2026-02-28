@@ -1,18 +1,33 @@
-import { ReactQueryProvider } from "@/global/provider/ReactQueryProvider";
-import { Inter } from "next/font/google"; // ✅ Use Nunito
+import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 import "./globals.css";
 
-// ✅ Import Nunito
-const nunito = Inter({
+// ✅ Import Inter
+const font = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"], // choose the weights you need
-  variable: "--font-nunito",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-inter", // fixed variable name
 });
 
 export const metadata: Metadata = {
-  title: "Cravings - Restaurant Management",
-  description: "Streamline your restaurant operations",
+  title: "Ibeh Blessing Ifunanya",
+  description:
+    "Professional Social Media Manager specializing in content strategy, brand growth, audience engagement, and performance-driven marketing campaigns.",
+  keywords: [
+    "Social Media Manager",
+    "Content Strategy",
+    "Digital Marketing",
+    "Brand Growth",
+    "Community Management",
+    "Portfolio",
+  ],
+  authors: [{ name: "Your Name" }],
+  openGraph: {
+    title: "Ibeh Blessing Ifunanya",
+    description:
+      "Helping brands grow through strategic content, audience engagement, and data-driven social media marketing.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -22,10 +37,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${nunito.className} antialiased`}>
-        <ReactQueryProvider>
+      <body className={`${font.className} antialiased`}>
           {children}
-        </ReactQueryProvider>
       </body>
     </html>
   );
