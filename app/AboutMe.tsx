@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useEffect, useRef, useState } from "react";
 
 export default function AboutMe() {
@@ -29,236 +29,85 @@ export default function AboutMe() {
   ];
 
   return (
-    <section id="about-me" ref={sectionRef}>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap');
+    <section
+      id="about-me"
+      ref={sectionRef}
+      className="relative overflow-hidden bg-black py-24 px-10 md:py-16 md:px-6"
+    >
+      {/* Gradient line top */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-800 to-transparent"></div>
 
-        #about-me {
-          background: #0a0a0a;
-          font-family: 'DM Sans', sans-serif;
-          padding: 6rem 2.5rem;
-          position: relative;
-          overflow: hidden;
-        }
-
-        #about-me::before {
-          content: '';
-          position: absolute;
-          top: 0; left: 0; right: 0;
-          height: 1px;
-          background: linear-gradient(to right, transparent, #1e1e1e, transparent);
-        }
-
-        .am-inner {
-          max-width: 1100px;
-          margin: 0 auto;
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 6rem;
-          align-items: start;
-        }
-
-        @media (max-width: 860px) {
-          .am-inner { grid-template-columns: 1fr; gap: 3rem; }
-          #about-me { padding: 4rem 1.5rem; }
-        }
-
-        /* ── Left ── */
-        .am-left {}
-
-        .am-eyebrow {
-          font-size: 0.65rem;
-          letter-spacing: 0.35em;
-          text-transform: uppercase;
-          color: #333;
-          margin-bottom: 1.5rem;
-          display: flex;
-          align-items: center;
-          gap: 0.75rem;
-          opacity: 0;
-          transform: translateX(-12px);
-          transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .am-eyebrow.visible { opacity: 1; transform: translateX(0); }
-        .am-eyebrow::before {
-          content: '';
-          width: 1.5rem; height: 1px;
-          background: #f472b6;
-        }
-
-        .am-heading {
-          font-family: 'Bebas Neue', sans-serif;
-          font-size: clamp(3rem, 6vw, 5.5rem);
-          line-height: 0.92;
-          letter-spacing: 0.02em;
-          color: #fff;
-          margin: 0 0 2rem;
-          opacity: 0;
-          transform: translateY(20px);
-          transition: opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s;
-        }
-        .am-heading.visible { opacity: 1; transform: translateY(0); }
-
-        .am-heading span {
-          color: transparent;
-          -webkit-text-stroke: 1px #333;
-        }
-
-        .am-bio {
-          font-size: 0.92rem;
-          color: #555;
-          line-height: 1.85;
-          font-weight: 300;
-          margin-bottom: 2.5rem;
-          opacity: 0;
-          transition: opacity 0.7s ease 0.2s;
-        }
-        .am-bio.visible { opacity: 1; }
-
-        .am-bio strong {
-          color: #aaa;
-          font-weight: 500;
-        }
-
-        /* Traits */
-        .am-traits {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 1px;
-          background: #161616;
-          border: 1px solid #161616;
-          opacity: 0;
-          transform: translateY(16px);
-          transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
-        }
-        .am-traits.visible { opacity: 1; transform: translateY(0); }
-
-        .am-trait {
-          background: #0f0f0f;
-          padding: 1rem 1.25rem;
-        }
-
-        .am-trait-label {
-          font-size: 0.62rem;
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
-          color: #2e2e2e;
-          margin-bottom: 0.3rem;
-        }
-
-        .am-trait-value {
-          font-size: 0.85rem;
-          color: #888;
-          font-weight: 500;
-        }
-
-        /* ── Right ── */
-        .am-right {
-          display: flex;
-          flex-direction: column;
-          gap: 1px;
-          background: #161616;
-          border: 1px solid #161616;
-          opacity: 0;
-          transform: translateY(24px);
-          transition: opacity 0.7s ease 0.25s, transform 0.7s ease 0.25s;
-        }
-        .am-right.visible { opacity: 1; transform: translateY(0); }
-
-        .am-value-card {
-          background: #0f0f0f;
-          padding: 1.75rem 2rem;
-          display: flex;
-          gap: 1.25rem;
-          align-items: flex-start;
-          transition: background 0.25s ease;
-          position: relative;
-          overflow: hidden;
-        }
-
-        .am-value-card::after {
-          content: '';
-          position: absolute;
-          left: 0; top: 0; bottom: 0;
-          width: 2px;
-          background: #f472b6;
-          transform: scaleY(0);
-          transform-origin: bottom;
-          transition: transform 0.3s ease;
-        }
-
-        .am-value-card:hover { background: #111; }
-        .am-value-card:hover::after { transform: scaleY(1); }
-
-        .am-value-emoji {
-          font-size: 1.4rem;
-          line-height: 1;
-          flex-shrink: 0;
-          margin-top: 0.1rem;
-        }
-
-        .am-value-title {
-          font-size: 0.82rem;
-          font-weight: 600;
-          color: #ccc;
-          letter-spacing: 0.05em;
-          margin-bottom: 0.35rem;
-          text-transform: uppercase;
-        }
-
-        .am-value-desc {
-          font-size: 0.8rem;
-          color: #444;
-          font-weight: 300;
-          line-height: 1.6;
-          margin: 0;
-        }
-      `}</style>
-
-      <div className="am-inner">
-
+      <div className="mx-auto grid max-w-[1100px] grid-cols-2 gap-24 md:grid-cols-1 md:gap-12">
         {/* Left */}
-        <div className="am-left">
-          <p className={`am-eyebrow ${inView ? 'visible' : ''}`}>Who I am</p>
-
-          <h2 className={`am-heading ${inView ? 'visible' : ''}`}>
-            The Person<br />Behind The<br /><span>Posts.</span>
-          </h2>
-
-          <p className={`am-bio ${inView ? 'visible' : ''}`}>
-            Hi, I'm <strong>Ibeh Blessing Ifunanya</strong> — a social media manager
-            passionate about helping brands show up online with clarity, consistency,
-            and confidence.<br /><br />
-            I don't just post content — I build <strong>communities</strong>, craft
-            <strong> strategies</strong>, and tell brand stories that actually connect
-            with real people. Whether you're a startup finding your voice or an
-            established brand looking to grow, I bring structure, creativity, and
-            genuine care to everything I do.
+        <div className="space-y-6 md:space-y-4">
+          <p
+            className={`flex items-center gap-3 text-[0.65rem] tracking-widest uppercase text-gray-700 transition-all duration-700 ${
+              inView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-3"
+            }`}
+          >
+            <span className="block h-px w-6 bg-pink-400"></span>
+            Who I am
           </p>
 
-          <div className={`am-traits ${inView ? 'visible' : ''}`}>
+          <h2
+            className={`font-bebas text-[clamp(3rem,6vw,5.5rem)] leading-[0.92] tracking-tight text-white transition-all duration-700 ${
+              inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+            }`}
+          >
+            The Person<br />
+            Behind The<br />
+            <span className="text-transparent stroke-[1px] stroke-gray-800">Posts.</span>
+          </h2>
+
+          <p
+            className={`text-gray-400 text-[0.92rem] leading-relaxed font-light transition-opacity duration-700 ${
+              inView ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            Hi, I'm <strong className="text-gray-400 font-medium">Ibeh Blessing Ifunanya</strong> — a social media manager
+            passionate about helping brands show up online with clarity, consistency, and confidence.<br /><br />
+            I don't just post content — I build <strong className="text-gray-400 font-medium">communities</strong>, craft
+            <strong className="text-gray-400 font-medium"> strategies</strong>, and tell brand stories that actually connect
+            with real people. Whether you're a startup finding your voice or an established brand looking to grow, I bring
+            structure, creativity, and genuine care to everything I do.
+          </p>
+
+          <div
+            className={`grid grid-cols-2 gap-[1px] border border-gray-900 bg-gray-900 transition-all duration-700 ${
+              inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+          >
             {traits.map((t) => (
-              <div key={t.label} className="am-trait">
-                <p className="am-trait-label">{t.label}</p>
-                <p className="am-trait-value">{t.value}</p>
+              <div key={t.label} className="bg-gray-950 p-4">
+                <p className="text-[0.62rem] uppercase tracking-widest text-gray-600 mb-1">{t.label}</p>
+                <p className="text-[0.85rem] font-medium text-gray-400">{t.value}</p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Right — Values */}
-        <div className={`am-right ${inView ? 'visible' : ''}`}>
+        {/* Right - Values */}
+        <div
+          className={`flex flex-col gap-[1px] border border-gray-900 bg-gray-900 transition-all duration-700 ${
+            inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          }`}
+        >
           {values.map((v) => (
-            <div key={v.title} className="am-value-card">
-              <span className="am-value-emoji">{v.emoji}</span>
+            <div
+              key={v.title}
+              className="relative flex items-start gap-5 bg-gray-950 p-7 overflow-hidden transition-colors duration-300 hover:bg-gray-900"
+            >
+              <span className="text-xl mt-[0.1rem] flex-shrink-0">{v.emoji}</span>
               <div>
-                <p className="am-value-title">{v.title}</p>
-                <p className="am-value-desc">{v.desc}</p>
+                <p className="text-[0.82rem] uppercase font-semibold tracking-wide text-gray-300 mb-1">
+                  {v.title}
+                </p>
+                <p className="text-[0.8rem] font-light text-gray-600 leading-6">{v.desc}</p>
               </div>
+              <span className="absolute left-0 top-0 bottom-0 w-0.5 bg-pink-400 scale-y-0 origin-bottom transition-transform duration-300 group-hover:scale-y-100"></span>
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

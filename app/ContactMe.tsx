@@ -316,9 +316,8 @@ export default function ContactMe() {
         </div>
 
         <h1 className={`cm-heading ${inView ? 'visible' : ''}`}>
-          Let's Create<br /><em>Together.</em>
+          {"Let's Create"}<br /><em>Together.</em>
         </h1>
-
         <p className={`cm-body ${inView ? 'visible' : ''}`}>
           I help brands stay consistent, visible, and stress-free on social media.
           From strategy to posting — your presence, handled with care.
