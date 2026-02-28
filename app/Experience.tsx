@@ -50,7 +50,7 @@ export default function Experience() {
   return (
     <section
       ref={cardRef}
-      className="min-h-screen w-full bg-gradient-to-br from-[#0b0b0d] to-[#151517] text-white font-sans relative overflow-hidden"
+      className="min-h-screen w-full bg-gradient-to-br from-gray-900 to-black text-white font-sans relative overflow-hidden"
     >
       {/* Decorative shapes */}
       <div className="absolute -top-20 -left-20 w-96 h-96 rounded-full bg-indigo-900 opacity-20 blur-3xl pointer-events-none"></div>
