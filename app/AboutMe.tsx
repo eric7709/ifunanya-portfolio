@@ -64,11 +64,11 @@ export default function AboutMe() {
               inView ? "opacity-100" : "opacity-0"
             }`}
           >
-            Hi, I'm <strong className="text-gray-400 font-medium">Ibeh Blessing Ifunanya</strong> — a social media manager
+            Hi, I&apos;m <strong className="text-gray-400 font-medium">Ibeh Blessing Ifunanya</strong> — a social media manager
             passionate about helping brands show up online with clarity, consistency, and confidence.<br /><br />
-            I don't just post content — I build <strong className="text-gray-400 font-medium">communities</strong>, craft
+            I don&apos;t just post content — I build <strong className="text-gray-400 font-medium">communities</strong>, craft
             <strong className="text-gray-400 font-medium"> strategies</strong>, and tell brand stories that actually connect
-            with real people. Whether you're a startup finding your voice or an established brand looking to grow, I bring
+            with real people. Whether you&apos;re a startup finding your voice or an established brand looking to grow, I bring
             structure, creativity, and genuine care to everything I do.
           </p>
 

@@ -105,7 +105,7 @@ export default function Testimonials() {
 
         /* Big quote mark watermark */
         #testimonials::after {
-          content: '\u201C';
+          content: '\\201C';
           position: absolute;
           top: 3rem;
           right: 3rem;
@@ -304,7 +304,7 @@ export default function Testimonials() {
                     <span key={s} className="tm-star">★</span>
                   ))}
                 </div>
-                <div className="tm-quote-mark">"</div>
+                <div className="tm-quote-mark">&ldquo;</div>
                 <p className="tm-quote">{t.quote}</p>
               </div>
               <div className="tm-author">
