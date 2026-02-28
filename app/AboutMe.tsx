@@ -43,7 +43,7 @@ export default function AboutMe() {
         {/* Left Column */}
         <div className="space-y-6 md:space-y-4">
           <p
-            className={`flex items-center gap-3 text-[0.65rem] tracking-widest uppercase text-gray-700 transition-all duration-700 ${
+            className={`flex items-center gap-3 text-[0.65rem] tracking-widest uppercase text-pink-500 transition-all duration-700 ${
               inView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-3"
             }`}
           >

@@ -133,6 +133,7 @@ export default function Jobs() {
                     font-size: 0.85rem;
                     color: #555;
                     letter-spacing: 0.1em;
+                    color: pink;
                     text-transform: uppercase;
                 }
 

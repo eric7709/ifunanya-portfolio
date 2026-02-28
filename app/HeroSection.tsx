@@ -94,7 +94,7 @@ export default function HeroSection() {
 
         .hero-name-line2 {
           color: transparent;
-          -webkit-text-stroke: 1px rgba(255,255,255,0.35);
+          -webkit-text-stroke: 1px pink;
         }
 
         .hero-role-wrap {

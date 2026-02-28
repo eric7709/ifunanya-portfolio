@@ -180,7 +180,7 @@ export default function Achievements() {
 
         .ach-title span {
           color: transparent;
-          -webkit-text-stroke: 1px #555;
+          -webkit-text-stroke: 1px pink;
         }
 
         .ach-subtitle {

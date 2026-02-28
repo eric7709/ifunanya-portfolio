@@ -122,7 +122,7 @@ export default function Platforms() {
           font-size: 0.65rem;
           letter-spacing: 0.35em;
           text-transform: uppercase;
-          color: #333;
+          color: pink;
           margin-bottom: 1rem;
           display: flex;
           align-items: center;
@@ -143,7 +143,7 @@ export default function Platforms() {
 
         .pl-title span {
           color: transparent;
-          -webkit-text-stroke: 1px #2a2a2a;
+          -webkit-text-stroke: 1px pink;
         }
 
         /* Grid */
