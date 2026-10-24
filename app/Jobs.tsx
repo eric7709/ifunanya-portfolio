@@ -51,7 +51,16 @@ export default function Jobs() {
             img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80",
             accent: "#EF4444",
         },
-    ]
+        {
+            id: 7,
+            title: "Wellness Brand Growth",
+            client: "Rbody Clinic",
+            year: "2025",
+            img: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=800&q=80",
+            accent: "#34D399",
+            href: "https://www.rbodyclinic.com/",
+        },
+    ];
 
     const headerRef = useRef<HTMLDivElement>(null);
     const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -251,6 +260,65 @@ export default function Jobs() {
                     font-size: 0.7rem;
                     color: #555;
                 }
+
+                #sampleA .featured-client {
+                    margin-top: 2rem;
+                    border: 1px solid rgba(255,255,255,0.08);
+                    background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+                    padding: 1.5rem 1.75rem;
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 1rem;
+                }
+
+                #sampleA .featured-client-copy {
+                    max-width: 620px;
+                }
+
+                #sampleA .featured-label {
+                    font-size: 0.7rem;
+                    letter-spacing: 0.2em;
+                    text-transform: uppercase;
+                    color: #f472b6;
+                    margin: 0 0 0.5rem;
+                }
+
+                #sampleA .featured-name {
+                    font-family: 'Bebas Neue', sans-serif;
+                    font-size: clamp(1.8rem, 4vw, 3rem);
+                    color: #fff;
+                    margin: 0;
+                    letter-spacing: 0.04em;
+                }
+
+                #sampleA .featured-description {
+                    font-size: 0.82rem;
+                    color: #8a8a8a;
+                    margin: 0.5rem 0 0;
+                    line-height: 1.7;
+                }
+
+                #sampleA .featured-link {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 0.85rem 1.3rem;
+                    border: 1px solid rgba(255,255,255,0.12);
+                    color: #fff;
+                    text-decoration: none;
+                    font-size: 0.7rem;
+                    letter-spacing: 0.18em;
+                    text-transform: uppercase;
+                    transition: all 0.25s ease;
+                }
+
+                #sampleA .featured-link:hover {
+                    background: #fff;
+                    color: #0a0a0a;
+                    border-color: #fff;
+                }
             `}</style>
 
             <div id="sampleA">
@@ -285,6 +353,24 @@ export default function Jobs() {
                             </div>
                         </div>
                     ))}
+                </div>
+
+                <div className="featured-client">
+                    <div className="featured-client-copy">
+                        <p className="featured-label">Featured client</p>
+                        <h3 className="featured-name">Rbody Clinic</h3>
+                        <p className="featured-description">
+                            Aesthetic and wellness care focused on post-surgical recovery, body contouring goals, and sustainable weight-loss journeys.
+                        </p>
+                    </div>
+                    <a
+                        className="featured-link"
+                        href="https://www.rbodyclinic.com/"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        Visit website
+                    </a>
                 </div>
             </div>
         </>

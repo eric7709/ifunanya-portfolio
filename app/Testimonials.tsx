@@ -19,30 +19,9 @@ const testimonials = [
   {
     quote: "Our paid ads finally started working after Blessing took over. She cut our cost per lead by half and doubled the engagement on every post.",
     name: "Temi Adeyemi",
-    role: "Marketing Lead, Novu Fashion",
+    role: "Marketing Manager, Novu Fashion",
     initials: "TA",
     color: "#A855F7",
-  },
-  {
-    quote: "Working with Blessing felt like having an in-house social media team. She understood our brand voice immediately and never missed a deadline.",
-    name: "Chidi Okafor",
-    role: "Director, Fitzone NG",
-    initials: "CO",
-    color: "#22C55E",
-  },
-  {
-    quote: "Our TikTok went from zero to 50K views in the first month. She has a real eye for what performs and the strategy to back it up.",
-    name: "Sola Balogun",
-    role: "Owner, Lumi Skincare",
-    initials: "SB",
-    color: "#06B6D4",
-  },
-  {
-    quote: "The launch campaign she ran for us was exceptional. Viral reach, strong engagement, and a clear plan from day one. Highly recommend.",
-    name: "Ngozi Eze",
-    role: "Events Director, Kobo Events",
-    initials: "NE",
-    color: "#EF4444",
   },
 ];
 
