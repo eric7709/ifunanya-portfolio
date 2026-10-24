@@ -25,7 +25,7 @@ export default function ContactMe() {
   ];
 
   const socials = [
-    { icon: <BsWhatsapp size={15} />, label: 'WhatsApp', value: '+234 000 000 0000', href: 'https://wa.me/2340000000000', color: '#34d399' },
+    { icon: <BsWhatsapp size={15} />, label: 'WhatsApp', value: '+2348123025875', href: 'https://wa.me/2348123025875', color: '#34d399' },
     { icon: <Instagram size={15} />, label: 'Instagram', value: '@ibehblessing', href: 'https://instagram.com/ibehblessing', color: '#f472b6' },
     { icon: <Facebook size={15} />, label: 'Facebook', value: 'Ibeh Blessing Ifunanya', href: 'https://facebook.com', color: '#60a5fa' },
     { icon: <BsTiktok size={15} />, label: 'TikTok', value: '@ibehblessing', href: 'https://tiktok.com', color: '#22d3ee' },
@@ -344,9 +344,7 @@ export default function ContactMe() {
             </div>
           ))}
         </div>
-
         <div className={`cm-divider ${inView ? 'visible' : ''}`} />
-
         {/* Socials */}
         <div className="cm-socials">
           {socials.map((item, i) => (
